@@ -1,0 +1,48 @@
+package com.example.json;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class PostActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_post);
+		Intent intent = getIntent();
+		Post post = (Post) intent.getSerializableExtra("Post");
+		TextView TMP = (TextView)findViewById(R.id.Txt_Author); 
+		TMP.setText(post.getAuthor());
+		TMP = (TextView)findViewById(R.id.Txt_Date); 
+		TMP.setText(post.getDate());
+		TMP = (TextView)findViewById(R.id.Txt_Topic); 
+		TMP.setText(post.getTopic());
+		TMP = (TextView)findViewById(R.id.Txt_Text); 
+		TMP.setText(post.getText());
+		ListView list = (ListView)findViewById(R.id.List_Keywords); 
+		ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, post.getKeywords());  
+		TMP.setText(post.getAuthor());
+		if (!post.getImage_URL().isEmpty()) {
+			Drawable d = LoadImageFromWebOperations(post.getImage_URL());
+			if (d != null){
+					ImageView image = (ImageView) findViewById(R.id.imageView1);
+				}
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.post, menu);
+		return true;
+	}
+
+}

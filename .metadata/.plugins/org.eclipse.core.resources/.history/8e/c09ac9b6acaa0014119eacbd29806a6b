@@ -1,0 +1,62 @@
+package com.example.json;
+
+import android.content.Context;
+import android.widget.ArrayAdapter;
+
+public class ListRowAdapter extends ArrayAdapter<Post>{
+	private Context context;
+	private int layoutResourceID;
+	private Post data[];
+
+	public ListRowAdapter(Context _context, int _layoutRes,
+			ShoppingList _data[]) {
+		super(_context, _layoutRes, _data);
+		context = _context;
+		layoutResourceID = _layoutRes;
+		data = _data;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+
+		View row = convertView;
+		RowHolder holder = null;
+
+		if (row == null) {
+			// wtedy nie widac komorki, zaraz bedzie
+			LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+			row = inflater.inflate(layoutResourceID, parent, false); // ta linia
+																		// juz
+																		// jest,
+																		// ale
+																		// bez
+																		// danych
+
+			holder = new RowHolder();
+			holder.RowDate = (TextView) row.findViewById(R.id.RowDate);
+			holder.RowName = (TextView) row.findViewById(R.id.RowName);
+			holder.RowItemsNumber = (TextView) row
+					.findViewById(R.id.RowItemsNumber);
+			row.setTag(holder); // sejwowanko dla holdera
+
+		} else {
+			// wtedy widac komorke
+			holder = (RowHolder) row.getTag();
+		}
+
+		ShoppingList item = data[position];
+		holder.RowDate.setText(item.GetDate());
+		holder.RowName.setText(item.GetName());
+		holder.RowItemsNumber.setText((""+item.GetItemsNumber()));
+
+		return row;
+	}
+
+	static class RowHolder {
+		TextView RowDate;
+		TextView RowName;
+		TextView RowItemsNumber;
+	}
+}
+
+}

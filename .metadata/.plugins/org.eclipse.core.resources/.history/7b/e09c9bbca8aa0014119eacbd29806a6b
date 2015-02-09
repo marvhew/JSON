@@ -1,0 +1,38 @@
+package com.example.json;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class jsonParser {
+	
+	public void Parse(JSONObject json)
+	{
+		List<Post> posts = new ArrayList<Post>();
+		JSONArray array;
+		try {
+			array = json.getJSONArray("recent_posts");
+			for(int i=0; i<array.length();i++)
+			{
+				JSONObject tmp = array.getJSONObject(i);
+				Post post = new Post();
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public String getObjectByKey()
+	{
+		return "";
+	}
+	
+	public String[] getArraytByKey()
+	{
+		return new String[]{""};
+	}
+}

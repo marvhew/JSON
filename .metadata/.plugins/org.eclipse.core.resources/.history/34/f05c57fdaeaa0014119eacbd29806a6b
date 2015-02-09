@@ -1,0 +1,9 @@
+package com.example.json;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PostsBase implements Serializable{
+	private List<Post> posts = new ArrayList<Post>();
+}

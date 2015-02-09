@@ -1,0 +1,69 @@
+{
+  "recent_posts": [
+    {
+      "date": "10.02.2013",
+      "author": "Paweł Sporysz",
+      "topic": "Wyniki z PSiO - katastrofa",
+      "image_url": "http://pulpypics.com/wp-content/uploads/2014/09/emoticon.jpg",
+      "text": "W przeciągu ostatniego roku wyniki zdoywane przez uczniów z przedmiotu programowanie strukturalne i obiektowe pokazały, ze poziom umiejetosci osiagany przez uczniow z tej dziedziny informatyki spada na leb na szyje. Bla bla bla...",
+      "keywords": [
+        "programowanie",
+        "szkoła",
+        "kiepsko"
+      ]
+    },
+    {
+      "date": "15.09.2013 ",
+      "author": "Jan Dudek",
+      "topic": "Sytuacja na krakowskich drogach",
+      "text": "W tym momencie sytuacja jest nawet dobra. Korki są ale bez przesady.",
+      "keywords": [
+        "korki",
+        "Kraków",
+        "prezydent"
+      ]
+    },
+    {
+      "date": "12.03.2013",
+      "topic": "O systemie Android",
+      "image_url": "http://0.static.wix.com/media/ac889d_542572e0ed4f6e8607b94be1b6694efa.gif_256",
+      "text": "Wolałbym pisać aplikacje w C#. Android ma fajne funkcje niektóre.",
+      "keywords": [
+        "Android",
+        "C#",
+        "aplikacje"
+      ]
+    },
+    {
+      "date": "27.04.2013",
+      "author": "Maciej Galos",
+      "image_url": "http://www.smerfy.net/postacie/osilek_smerfy.gif",
+      "text": "Fajnie cos dla zdrowia porobic. To umysł odciaza i odstresowuje.",
+      "keywords": [
+        "biceps",
+        "pompa",
+        "kreatyna"
+      ]
+    },
+    {
+      "date": "5.10.2013",
+      "author": "Hubert Drogosz",
+      "topic": "O kobietach",
+      "text": "mhm",
+      "keywords": [
+        "gąski"
+      ]
+    },
+    {
+      "date": "19.01.2013",
+      "author": "Maciej Galos",
+      "image_url": "http://mailgrupowy.pl/files/html/224267,index_html_m120bd0a2.png",
+      "topic": "O polityce",
+      "text": "EEE i tak nie wiem. Polityka to ...",
+      "keywords": [
+        "polityka",
+        "sytuacja"
+      ]
+    }
+  ]
+}

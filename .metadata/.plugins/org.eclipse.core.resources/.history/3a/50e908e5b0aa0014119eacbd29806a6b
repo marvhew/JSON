@@ -1,0 +1,78 @@
+package com.example.json;
+
+import java.io.InputStream;
+import java.net.URL;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class ListRowAdapter extends ArrayAdapter<Post> {
+	private Context context;
+	private int layoutResourceID;
+	private Post data[];
+
+	public ListRowAdapter(Context _context, int _layoutRes,
+			Post _data[]) {
+		super(_context, _layoutRes, _data);
+		context = _context;
+		layoutResourceID = _layoutRes;
+		data = _data;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+
+		View row = convertView;
+		RowHolder holder = null;
+
+		if (row == null) {
+			LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+			row = inflater.inflate(layoutResourceID, parent, false);
+
+			holder = new RowHolder();
+			holder.RowDate = (TextView) row.findViewById(R.id.Txt_Date);
+			holder.RowAuthor = (TextView) row.findViewById(R.id.Txt_Author);
+			holder.Topic = (TextView) row
+					.findViewById(R.id.Txt_Topic);
+			row.setTag(holder);
+			
+			holder.Image = (ImageView) row.findViewById(R.id.imageView1);
+
+		} else {
+			holder = (RowHolder) row.getTag();
+		}
+
+		Post item = data[position];
+		holder.RowDate.setText(item.getDate());
+		holder.RowAuthor.setText(item.getAuthor());
+		holder.Topic.setText(item.getTopic());
+		holder.Image.setImageBitmap(new Bitmap())
+
+		return row;
+	}
+	
+	private Drawable LoadImageFromWebOperations(String url) {
+	    try {
+	        InputStream is = (InputStream) new URL(url).getContent();
+	        Drawable d = Drawable.createFromStream(is, "src name");
+	        return d;
+	    } catch (Exception e) {
+	        return null;
+	    }
+	}
+
+	static class RowHolder {
+		TextView RowDate;
+		TextView RowAuthor;
+		TextView Topic;
+		ImageView Image;
+	}
+}

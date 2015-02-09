@@ -1,0 +1,45 @@
+package com.example.json;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class jsonParser {
+	
+	public static List<Post> Parse(JSONObject json)
+	{
+		List<Post> posts = snew ArrayList<Post>();
+		JSONArray array;
+		try {
+			array = json.getJSONArray("recent_posts");
+			for(int i=0; i<array.length();i++)
+			{
+				JSONObject tmp = array.getJSONObject(i);
+				Post post = new Post(tmp.optString("author"),tmp.optString("date"),tmp.optString("text"),tmp.optString("image_url"),tmp.optString("topic"),getKeywords(tmp.optJSONArray("keywords")));
+				posts.add(post);
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return posts;
+	}
+	
+	private static String[] getKeywords(JSONArray arr)
+	{
+		String[] tmp = new String[arr.length()];
+		for(int i=0;i<tmp.length;i++)
+		{
+			try {
+				tmp[i] = arr.getString(i);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return tmp;
+	}
+}

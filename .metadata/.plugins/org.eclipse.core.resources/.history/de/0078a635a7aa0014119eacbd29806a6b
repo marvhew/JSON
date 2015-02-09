@@ -1,0 +1,10 @@
+package com.example.json;
+
+public class Post {
+	private String author;
+	private String date;
+	private String text;
+	private String image_url;
+	private String 
+	
+}
